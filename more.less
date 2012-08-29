@@ -39,6 +39,12 @@
 	box-shadow: @params @color;
 }
 
+.boxShadowInset(@color: rgba(0, 0, 0, .1), @params: 0 1px 1px) {
+	-webkit-box-shadow: inset @params @color;
+	-moz-box-shadow: inset @params @color;
+	box-shadow: inset @params @color;
+}
+
 .transition(@duration:0.2s, @ease:ease-out, @target: all) {
 	-webkit-transition: @target @duration @ease;
 	-moz-transition: @target @duration @ease;
