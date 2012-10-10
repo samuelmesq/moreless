@@ -1,122 +1,22 @@
-// Clearfix
-// --------
-// For clearing floats like a boss h5bp.com/q
-.clearfix {
-	*zoom: 1;
-	&:before,
-	&:after {
-		display: table;
-		content: "";
-	}
-	&:after {
-		clear: both;
-	}
-}
-
 /* ====================================
 = All properties of gradients mixins is from Colorzilla
 = http://www.colorzilla.com/gradient-editor/
 ==================================== */
+@import "gradient/vertical-gradient";
+@import "gradient/horizontal-gradient";
 
-.simpleGradient(@start: #f3f3f3, @stop: #666666, @svg: ' '){
-	background: @start; // Old browsers 
-	background-image: ~"url(data:image/svg+xml;base64,@{svg})"; // IE9 SVG, needs conditional override of 'filter' to 'none'
-	background: -moz-linear-gradient(top,  @start 0%, @stop 100%); // FF3.6+
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); // Chrome,Safari4+
-	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%); // Chrome10+,Safari5.1+
-	background: -o-linear-gradient(top,  @start 0%,@stop 100%); // Opera 11.10+
-	background: -ms-linear-gradient(top,  @start 0%,@stop 100%); // IE10+
-	background: linear-gradient(top,  @start 0%,@stop 100%); // W3C
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{stop}')"; // IE6-8
-}
+// Helpers
+@import "helper/clearfix";
+@import "helper/indent";
+@import "helper/opacity";
 
-.verticalGradient(@start, @stop){
-	background: @start; // Old browsers 
-	background: -moz-linear-gradient(top,  @start 0%, @stop 100%); // FF3.6+
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); // Chrome,Safari4+
-	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%); // Chrome10+,Safari5.1+
-	background: -o-linear-gradient(top,  @start 0%,@stop 100%); // Opera 11.10+
-	background: -ms-linear-gradient(top,  @start 0%,@stop 100%); // IE10+
-	background: linear-gradient(top,  @start 0%,@stop 100%); // W3C
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{stop}')"; // IE6-8	
-}
-.verticalGradient(@start, @stop, @end){
-	background: @start; // Old browsers 
-	background: -moz-linear-gradient(top,  @start 0%, @stop 50%, @end 100%); // FF3.6+
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(50%, @stop), color-stop(100%,@end)); // Chrome,Safari4+
-	background: -webkit-linear-gradient(top,  @start 0%,@stop 50%, @end 100%); // Chrome10+,Safari5.1+
-	background: -o-linear-gradient(top,  @start 0%,@stop 50%, @end 100%); // Opera 11.10+
-	background: -ms-linear-gradient(top,  @start 0%,@stop 50%, @end 100%); // IE10+
-	background: linear-gradient(top,  @start 0%,@stop 50%, @end 100%); // W3C
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}')"; // IE6-8
-}
-.verticalGradient(center, @start, @stop, @stop2, @end){
-	background: @start; // Old browsers 
-	background: -moz-linear-gradient(top,  @start 0%, @stop 50%, @stop2 0%, @end 100%); // FF3.6+
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(50%, @stop), color-stop(0%, @stop2), color-stop(100%,@end)); // Chrome,Safari4+
-	background: -webkit-linear-gradient(top,  @start 0%,@stop 50%, @stop2 0%, @end 100%); // Chrome10+,Safari5.1+
-	background: -o-linear-gradient(top,  @start 0%,@stop 50%, @stop2 0%, @end 100%); // Opera 11.10+
-	background: -ms-linear-gradient(top,  @start 0%,@stop 50%, @stop2 0%, @end 100%); // IE10+
-	background: linear-gradient(top,  @start 0%,@stop 50%, @stop2 0%, @end 100%); // W3C
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}')"; // IE6-8
-}
-.verticalGradient(normal, @start, @stop, @stop2, @end){
-	background: @start; // Old browsers 
-	background: -moz-linear-gradient(top,  @start 0%, @stop 35%, @stop2 65%, @end 100%); // FF3.6+
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(35%, @stop), color-stop(65%, @stop2), color-stop(100%,@end)); // Chrome,Safari4+
-	background: -webkit-linear-gradient(top,  @start 0%,@stop 35%, @stop2 65%, @end 100%); // Chrome10+,Safari5.1+
-	background: -o-linear-gradient(top,  @start 0%,@stop 35%, @stop2 65%, @end 100%); // Opera 11.10+
-	background: -ms-linear-gradient(top,  @start 0%,@stop 35%, @stop2 65%, @end 100%); // IE10+
-	background: linear-gradient(top,  @start 0%,@stop 35%, @stop2 65%, @end 100%); // W3C
-	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}')"; // IE6-8
-}
+// CSS3
+@import "css3/border-radius";
+@import "css3/box-shadow";
+@import "css3/transition";
+@import "css3/filter";
+@import "css3/box-sizing";
 
-.borderRadius(@radius: 2px){
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-}
-
-.boxShadow(@color: rgba(0, 0, 0, .1), @params: 0 1px 1px) {
-	-webkit-box-shadow: @params @color;
-	-moz-box-shadow: @params @color;
-	box-shadow: @params @color;
-}
-
-.transition(@duration:0.2s, @ease:ease-out, @target: all) {
-	-webkit-transition: @target @duration @ease;
-	-moz-transition: @target @duration @ease;
-	transition: @target @duration @ease;
-}
-
-.translate(@x: 0, @y: 0){
-	-webkit-transform: translate( @x , @y );
-	-moz-transform: translate( @x , @y );
-	-o-transform: translate( @x , @y );
-	-ms-transform: translate( @x , @y );
-	transform: translate( @x , @y );
-}
-
-.scale(@ratio:1.1){
-	-webkit-transform:scale(@ratio);
-	-moz-transform:scale(@ratio);
-  	-ms-transform: scale (@ratio);
-	transform:scale(@ratio);
-}
-
-.boxSizing(@param: border-box){
-	-webkit-box-sizing: @param; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: @param;    /* Firefox, other Gecko */
-	box-sizing: @param;         /* Opera/IE 8+ */
-}
-
-.indent() {
-	text-align: left;
-	text-indent: -999em;
-}
-
-.opacity(@alpha: 0.5) {
-	opacity: @alpha;
-	@ie: percentage(@alpha);
-	filter:~"alpha(opacity=@{ie})";
-}
+// Transform
+@import "transform/scale";
+@import "transform/translate";

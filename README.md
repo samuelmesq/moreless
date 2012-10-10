@@ -1,9 +1,9 @@
-#more.less is a collection of lesscss mixins
+#more.less is a collection of [Less](http://lesscss.org) mixins
 > Less is more.
 
 examples:
 
   * boxShadow();
-  * simpleGradient();
+  * verticalGradient();
   * borderRadius();
   * opacity();

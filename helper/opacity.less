@@ -1,0 +1,5 @@
+.opacity(@alpha: 0.5) {
+	opacity: @alpha;
+	@ie: percentage(@alpha);
+	filter:~"alpha(opacity=@{ie})";
+}
