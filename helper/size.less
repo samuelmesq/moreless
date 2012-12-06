@@ -1,0 +1,10 @@
+._setSize_(@width, @height){
+	width: @width;
+	height: @height;
+}
+.setSize(@p){
+	._setSize_(@p, @p);
+}
+.setSize(@w, @h){
+	._setSize_(@w, @h);
+}

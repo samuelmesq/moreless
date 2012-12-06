@@ -1,5 +1,43 @@
-.boxShadow(@color: rgba(0, 0, 0, .1), @params: 0 1px 1px) {
+._boxShadow_(@color, @params){
 	-webkit-box-shadow: @params @color;
 	-moz-box-shadow: @params @color;
 	box-shadow: @params @color;
+}
+
+.boxShadow(@color: rgba(0, 0, 0, .1), @params: 0 1px 1px) when ( iscolor(@color) ) {
+	._boxShadow_(@color, @params);
+}
+
+.boxShadow(@alpha: .1, @params: 0 1px 1px) when ( isnumber(@alpha) ) {
+	._boxShadow_(rgba(0, 0, 0, @alpha), @params);
+}
+
+.boxShadow(@shadow1) when not ( isnumber(@shadow1) ) and not (iscolor(@shadow1)) {
+	-webkit-box-shadow: @shadow1;
+	-moz-box-shadow: @shadow1;
+	box-shadow: @shadow1;
+}
+
+.boxShadow(@shadow1, @shadow2) when not ( isnumber(@shadow1) ) and not (iscolor(@shadow1)) {
+	-webkit-box-shadow: @shadow1, @shadow2;
+	-moz-box-shadow: @shadow1, @shadow2;
+	box-shadow: @shadow1, @shadow2;
+}
+
+.boxShadow(@shadow1, @shadow2, @shadow3){
+	-webkit-box-shadow: @shadow1, @shadow2, @shadow3;
+	-moz-box-shadow: @shadow1, @shadow2, @shadow3;
+	box-shadow: @shadow1, @shadow2, @shadow3;
+}
+
+.boxShadow(@shadow1, @shadow2, @shadow3, @shadow4){
+	-webkit-box-shadow: @shadow1, @shadow2, @shadow3, @shadow4;
+	-moz-box-shadow: @shadow1, @shadow2, @shadow3, @shadow4;
+	box-shadow: @shadow1, @shadow2, @shadow3, @shadow4;
+}
+
+.boxShadow(@shadow1, @shadow2, @shadow3, @shadow4, @shadow5){
+	-webkit-box-shadow: @shadow1, @shadow2, @shadow3, @shadow4, @shadow5;
+	-moz-box-shadow: @shadow1, @shadow2, @shadow3, @shadow4, @shadow5;
+	box-shadow: @shadow1, @shadow2, @shadow3, @shadow4, @shadow5;
 }

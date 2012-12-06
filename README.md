@@ -10,4 +10,5 @@ examples:
 
 ## TODO:
 	1. add new functions
-	2. make more complex and powerful
+	2. add comments in mixins
+	3. make more complex and powerful
